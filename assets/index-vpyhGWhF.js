@@ -84,9 +84,9 @@ Error generating stack: `+o.message+`
           d-flex btn bg-${e} p-0 border-0
         `,style:{transition:"0s",maxWidth:"200px"},children:Q.jsx(on.i,{whileHover:{opacity:.5},className:`
             rounded bi-door-open-fill p-4 pt-3 pb-3
-          `,style:{fontSize:"1.5rem"}})}),Q.jsx(zy,{lightMode:e,setLightMode:t})]})}function BT({user:e,isMenu:t,setIsMenu:n,lightMode:r,setLightMode:i}){const{logout:o}=ta(),[s,a]=E.useState([{id:0,img:null,pic:e==null?void 0:e.picture,pressed:!1},{id:1,img:"bi-circle-fill",pressed:!1,name:"name"},{id:2,img:"bi-circle-fill",pressed:!1,name:"name"},{id:3,img:"bi-door-closed-fill",logout:!0,pressed:!1,name:"Logout"}]),l=d=>{const f=[...s];f[d.id].pressed=!0,a(f);const p=[...s];setTimeout(()=>{p.forEach(m=>{p[m.id].pressed=!1}),a(p)},200)},u=()=>Q.jsx("div",{className:"d-flex flex-column pt-1 pb-1",children:Q.jsx("img",{alt:"user pic",src:e==null?void 0:e.picture,className:"rounded-circle",width:"35rem"})}),c=d=>Q.jsx("i",{className:d.img,style:{fontSize:"1.5rem"}});return Q.jsxs(on.div,{initial:{x:"-150%"},animate:t?"open":"closed",transition:{duration:0},style:{transition:"all 0.4s"},variants:{open:{x:0},closed:{x:"-150%"}},className:`
+          `,style:{fontSize:"1.5rem"}})}),Q.jsx(zy,{lightMode:e,setLightMode:t})]})}function BT({user:e,isMenu:t,setIsMenu:n,lightMode:r,setLightMode:i}){const{logout:o}=ta(),[s,a]=E.useState([{id:0,img:null,pic:e==null?void 0:e.picture,pressed:!1},{id:1,img:"bi-circle-fill",pressed:!1,name:"name"},{id:2,img:"bi-circle-fill",pressed:!1,name:"name"},{id:3,img:"bi-door-closed-fill",logout:!0,pressed:!1,name:"Logout"}]),l=d=>{const f=[...s];f[d.id].pressed=!0,a(f);const p=[...s];setTimeout(()=>{p.forEach(m=>{p[m.id].pressed=!1}),a(p)},200)},u=()=>Q.jsx("div",{className:"d-flex flex-column pt-2",children:Q.jsx("img",{alt:"user pic",src:e==null?void 0:e.picture,className:"rounded-circle",width:"35rem"})}),c=d=>Q.jsx("i",{className:d.img,style:{fontSize:"1.5rem"}});return Q.jsxs(on.div,{initial:{x:"-150%"},animate:t?"open":"closed",transition:{duration:0},style:{transition:"all 0.4s"},variants:{open:{x:0},closed:{x:"-150%"}},className:`
         d-flex fixed-top h-100 pe-none
-        justify-content-start p-2
+        justify-content-start p-3
         align-items-center
       `,children:[Q.jsx("button",{type:"button",onClick:()=>n(!1),className:`
           fixed-top w-100 h-100 btn
@@ -100,15 +100,17 @@ Error generating stack: `+o.message+`
               position-relative z-2
               align-items-center btn
               justify-content-center
-            `,children:d.pic?u():c(d)},d.id)),Q.jsx(zy,{lightMode:r,setLightMode:i})]})]})}function $T({user:e,lightMode:t,setLightMode:n}){const{logout:r}=ta(),[i,o]=E.useState(!1),[s,a]=E.useState([{id:0,img:"bi-list",menu:!0,pressed:!1},{id:1,img:"bi-circle-fill",pressed:!1},{id:2,img:null,pic:e==null?void 0:e.picture,pressed:!1},{id:3,img:"bi-door-closed-fill",logout:!0,pressed:!1}]),l=d=>{const f=[...s];f[d.id].pressed=!0,a(f);const p=[...s];setTimeout(()=>{p.forEach(m=>{p[m.id].pressed=!1}),a(p)},200)},u=()=>Q.jsxs(Q.Fragment,{children:[Q.jsx("img",{alt:"user pic",src:e==null?void 0:e.picture,className:"rounded-circle position-absolute",width:"30rem"}),Q.jsx("div",{className:"p-2 pt-2 pb-2"})]}),c=d=>Q.jsx("i",{className:d.img,style:{fontSize:"1.5rem"}});return Q.jsxs("div",{className:`
+            `,children:d.pic?u():c(d)},d.id)),Q.jsx(zy,{lightMode:r,setLightMode:i})]})]})}function $T({user:e,lightMode:t,setLightMode:n}){const{logout:r}=ta(),[i,o]=E.useState(!1),[s,a]=E.useState([{id:0,img:"bi-list",menu:!0,pressed:!1},{id:1,img:"bi-circle-fill",pressed:!1},{id:2,img:`
+        bi-plus-lg
+      `,pressed:!1},{id:3,img:null,pic:e==null?void 0:e.picture,pressed:!1},{id:4,img:"bi-door-closed-fill",logout:!0,pressed:!1}]),l=d=>{const f=[...s];f[d.id].pressed=!0,a(f);const p=[...s];setTimeout(()=>{p.forEach(m=>{p[m.id].pressed=!1}),a(p)},200)},u=()=>Q.jsxs(Q.Fragment,{children:[Q.jsx("img",{alt:"user pic",src:e==null?void 0:e.picture,className:"rounded-circle position-absolute",width:"30rem"}),Q.jsx("div",{className:"p-2 pt-2 pb-2"})]}),c=d=>Q.jsx("i",{className:d.img,style:{fontSize:"1.5rem"}});return Q.jsxs("div",{className:`
         w-100 d-flex fixed-bottom
-        justify-content-center p-2
+        justify-content-center p-3
       `,children:[Q.jsx("nav",{className:`
           d-flex flex-grow-1
           bg-${t} rounded
         `,style:{maxWidth:"25rem"},children:s.map(d=>Q.jsx(on.button,{id:d.id,type:"button",whileHover:{opacity:.5},animate:d.pressed?"open":"closed",transition:{duration:.4},variants:{open:{scale:.5},closed:{scale:1}},onClick:()=>{l(d),d.logout&&r({logoutParams:{returnTo:`${window.location.origin}/gossyp/`}}),d.menu&&o(!0)},style:{transition:"all 0s",maxWidth:"200px"},className:`
               flex-grow-1 d-flex
-              border-0 p-4 pt-3 pb-3
+              border-0 pt-3 pb-3
               position-relative z-2
               align-items-center btn
               justify-content-center
@@ -120,7 +122,7 @@ Error generating stack: `+o.message+`
             ${e==="dark"?"#27292f":"#f4f4f7"}
           `},className:`
           p-4 rounded-circle position-absolute
-        `}),Q.jsx(on.div,{animate:{rotate:360},transition:{duration:2,repeat:"infinite",ease:"anticipate"},style:{transition:"all 0s",borderTop:`
+        `}),Q.jsx(on.div,{animate:{rotate:360},transition:{duration:.8,repeat:"infinite",ease:"linear"},style:{borderTop:`
             8px solid
             ${e==="dark"?"#f4f4f7":"#27292f"}
           `,borderLeft:"8px solid transparent",borderRight:"8px solid transparent",borderBottom:"8px solid transparent"},className:`
