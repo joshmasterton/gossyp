@@ -95,7 +95,7 @@ Error generating stack: `+o.message+`
         bg-${t}
       `,children:[J.jsx("nav",{className:`
           d-flex flex-grow-1 rounded
-        `,style:{maxWidth:"30rem"},children:i.map(u=>J.jsx(Xr.button,{id:u.id,type:"button",animate:u.pressed?"open":"closed",transition:{duration:.4},variants:{open:{scale:.5},closed:{scale:1}},onClick:()=>{s(u),u.logout&&r()},style:{transition:"all 0s",maxWidth:"200px"},className:`
+        `,style:{maxWidth:"30rem"},children:i.map(u=>J.jsx(Xr.button,{id:u.id,type:"button",animate:u.pressed?"open":"closed",transition:{duration:.4},variants:{open:{scale:.5},closed:{scale:1}},onClick:()=>{s(u),u.logout&&r({logoutParams:{returnTo:`${window.location.origin}/gossyp/`}})},style:{transition:"all 0s",maxWidth:"200px"},className:`
               flex-grow-1 d-flex
               border-0 p-4 pt-3 pb-3
               position-relative
