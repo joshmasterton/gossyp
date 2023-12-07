@@ -122,7 +122,7 @@ Error generating stack: `+o.message+`
             p-4 pt-3 pb-3 border-0 z-2
           `,children:N.jsx("i",{className:"bi-send-fill",style:{fontSize:"1.5rem"}})})]}),N.jsx("button",{type:"button",onClick:()=>{i(!1),t(!0)},style:{backdropFilter:"blur(0rem)",WebkitBackdropFilter:"blur(0rem)"},className:`
           position-absolute w-100 h-100
-          border-0 btn btn-transparent
+          border-0 btn btn-transparent pe-none
         `})]})}function KT({isNav:e,setIsNav:t,user:n,lightMode:r,setLightMode:i,fetchMessages:o}){const{logout:s}=na(),[a,l]=E.useState(!1),[u,c]=E.useState(!1),[d,f]=E.useState([{id:0,img:"bi-list",menu:!0,pressed:!1},{id:1,img:"bi-circle-fill",pressed:!1},{id:2,add:!0,img:`
         bi-plus-lg
       `,pressed:!1},{id:3,img:null,pic:n==null?void 0:n.picture,pressed:!1},{id:4,img:"bi-door-closed-fill",logout:!0,pressed:!1}]),p=x=>{const g=[...d];g[x.id].pressed=!0,f(g);const h=[...d];setTimeout(()=>{h.forEach(v=>{h[v.id].pressed=!1}),f(h)},200)},m=()=>N.jsxs(N.Fragment,{children:[N.jsx("img",{alt:"user pic",src:n==null?void 0:n.picture,className:"rounded-circle position-absolute",width:"30rem"}),N.jsx("div",{className:"p-2 pt-2 pb-2"})]}),w=x=>N.jsx("i",{className:x.img,style:{fontSize:"1.5rem"}});return N.jsxs("div",{className:`
