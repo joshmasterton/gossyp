@@ -111,7 +111,7 @@ Error generating stack: `+o.message+`
         `,style:{backdropFilter:"blur(0.5rem)",WebkitBackdropFilter:"blur(0.5rem)"},children:[N.jsx("div",{className:`
             w-100 h-100 rounded opacity-75
             bg-${n} position-absolute z-1
-          `}),N.jsx(Rt.button,{type:"button",whileHover:{opacity:.5},animate:s?"open":"closed",transition:{duration:.4},variants:{open:{scale:.5},closed:{scale:1}},onClick:()=>{i(!1),t(!0)},className:`
+          `}),N.jsx(Rt.button,{type:"button",whileHover:{opacity:.5},transition:{duration:.4},onClick:()=>{i(!1),t(!0)},className:`
             align-self-end btn
             p-4 pt-3 pb-3 border-0 z-2
           `,children:N.jsx("i",{className:"bi-arrow-left",style:{fontSize:"1.5rem"}})}),N.jsx("input",{type:"text",value:l,onChange:f=>c(f),placeholder:"Write message...",className:`
