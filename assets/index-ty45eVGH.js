@@ -102,7 +102,7 @@ Error generating stack: `+o.message+`
               position-relative z-2 p-3 pt-2 pb-2
               align-items-center btn
               justify-content-center
-            `,children:d.pic?u():c(d)},d.id))]})]})}function HT({user:e,setIsNav:t,lightMode:n,isWriteMessage:r,setIsWriteMessage:i}){const[o,s]=E.useState(!1),[a,l]=E.useState(""),u=d=>l(d.target.value),c=async d=>{s(!0),setTimeout(()=>s(!1),200),d.preventDefault();const p=await(await fetch("http://localhost:8081/sendMessage",{headers:{"Content-Type":"application/json"},method:"POST",credentials:"include",body:JSON.stringify({message:a,user:e.name,userImg:e.picture})})).json();return console.log(p),l("")};return z.jsxs(Bt.div,{initial:{x:"150%"},animate:r?"open":"closed",transition:{duration:0},style:{transition:"all 0.4s"},variants:{open:{opacity:1,x:0},closed:{opacity:0,x:"150%"}},className:`
+            `,children:d.pic?u():c(d)},d.id))]})]})}function HT({user:e,setIsNav:t,lightMode:n,isWriteMessage:r,setIsWriteMessage:i}){const[o,s]=E.useState(!1),[a,l]=E.useState(""),u=d=>l(d.target.value),c=async d=>{s(!0),setTimeout(()=>s(!1),200),d.preventDefault();const p=await(await fetch("https://gossyp-api.fly.dev/sendMessage",{headers:{"Content-Type":"application/json"},method:"POST",credentials:"include",body:JSON.stringify({message:a,user:e.name,userImg:e.picture})})).json();return console.log(p),l("")};return z.jsxs(Bt.div,{initial:{x:"150%"},animate:r?"open":"closed",transition:{duration:0},style:{transition:"all 0.4s"},variants:{open:{opacity:1,x:0},closed:{opacity:0,x:"150%"}},className:`
         d-flex fixed-top w-100 h-100 align-items-end
         justify-content-center overflow-hidden
       `,children:[z.jsxs("form",{method:"POST",className:`
@@ -150,7 +150,7 @@ Error generating stack: `+o.message+`
             ${e==="dark"?"#f4f4f7":"#27292f"}
           `,borderLeft:"8px solid transparent",borderRight:"8px solid transparent",borderBottom:"8px solid transparent"},className:`
           p-4 rounded-circle
-        `})]})}function XT({isNav:e}){const t=E.useRef(null),[n,r]=E.useState([]);return E.useEffect(()=>{const i=async()=>{var a;const s=await(await fetch("http://localhost:8081/getMessages",{headers:{"Content-Type":"application/json"},method:"GET",credentials:"include"})).json();return(a=t.current)==null||a.scrollIntoView(),r(s)};return()=>i()},[e]),z.jsxs("div",{className:`
+        `})]})}function XT({isNav:e}){const t=E.useRef(null),[n,r]=E.useState([]);return E.useEffect(()=>{const i=async()=>{var a;const s=await(await fetch("https://gossyp-api.fly.dev/getMessages",{headers:{"Content-Type":"application/json"},method:"GET",credentials:"include"})).json();return(a=t.current)==null||a.scrollIntoView(),r(s)};return()=>i()},[e]),z.jsxs("div",{className:`
         d-flex flex-column w-100 h-100 p-3
       `,children:[n.map(i=>z.jsxs("div",{className:`
             border-bottom p-3 gap-3
