@@ -89,13 +89,13 @@ Error generating stack: `+o.message+`
         `,style:{transition:"all 0.1s",backdropFilter:"blur(0.5rem)",WebkitBackdropFilter:"blur(0.5rem)"}}),j.jsx(yt.div,{className:`
           d-flex flex-column pe-none z-3 fixed-top
           rounded h-100 flex-wrap
-          p-3
+          p-3 w-100
         `,initial:{x:"-150%"},animate:t?"open":"closed",transition:{duration:0},variants:{open:{x:0},closed:{x:"-150%"}},style:{transition:"all .4s"},children:j.jsxs("nav",{className:`
             d-flex flex-column pe-auto z-2
             rounded h-100 flex-wrap
-          `,style:{transition:"all 0s",maxWidth:"5rem",backdropFilter:"blur(0.5rem)",WebkitBackdropFilter:"blur(0.5rem)"},children:[j.jsx("div",{className:`
+          `,style:{transition:"all 0s",maxWidth:"5rem",backdropFilter:"blur(0.5rem)",WebkitBackdropFilter:"blur(0.5rem)"},children:[j.jsx("div",{style:{maxWidth:"5rem"},className:`
               w-100 h-100 rounded opacity-75
-              bg-${r} position-absolute
+              position-absolute bg-${r}
             `}),s.map(d=>j.jsx(yt.button,{id:d.id,type:"button",whileHover:{opacity:.5},animate:d.pressed?"open":"closed",transition:{duration:.4},variants:{open:{scale:.5},closed:{scale:1}},onClick:()=>{l(d),d.logout&&o({logoutParams:{returnTo:`${window.location.origin}/gossyp/`}}),d.light&&(p1(),i(Cc())),d.exit&&n(!1)},style:{transition:"all 0s",maxHeight:"5rem"},className:`
                 d-flex border-0 flex-grow-1
                 position-relative z-2 p-3 pt-2 pb-2
