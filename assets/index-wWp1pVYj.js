@@ -129,7 +129,7 @@ Error generating stack: `+o.message+`
           `}),j.jsx(yt.button,{type:"button",whileHover:{opacity:.5},transition:{duration:.4},onClick:()=>{i(!1),t(!0)},className:`
             align-self-end btn
             p-4 pt-3 pb-3 border-0 z-2
-          `,children:j.jsx("i",{className:"bi-arrow-left",style:{fontSize:"1.5rem"}})}),j.jsx("input",{type:"text",value:d,onChange:w=>p(w),onClick:()=>setTimeout(()=>{var w;(w=s.current)==null||w.scrollIntoView({behavior:"smooth",block:"end",inline:"nearest"})},50),placeholder:"Write message...",className:`
+          `,children:j.jsx("i",{className:"bi-arrow-left",style:{fontSize:"1.5rem"}})}),j.jsx("input",{type:"text",value:d,onChange:w=>p(w),onClick:()=>setTimeout(()=>{var w;(w=s.current)==null||w.scrollIntoView({behavior:"smooth",block:"end",inline:"nearest"})},100),placeholder:"Write message...",className:`
             border-0 rounded pt-3 pb-3
             flex-grow-1 z-2 bg-transparent
           `,style:{outline:0,width:"100%"}}),a?j.jsx("div",{className:`
