@@ -136,7 +136,7 @@ Error generating stack: `+o.message+`
               `,children:j.jsx(Zc,{lightMode:n})}):j.jsx(yt.button,{type:"submit",whileHover:{opacity:.5},animate:u?"open":"closed",transition:{duration:.4},variants:{open:{scale:.5},closed:{scale:1}},onClick:w=>m(w),className:`
                 align-self-end btn
                 p-4 pt-3 pb-3 border-0 z-2
-              `,children:j.jsx("i",{className:"bi-send-fill",style:{fontSize:"1.5rem"}})})]})})}function GT({isNav:e,setIsNav:t,user:n,lightMode:r,setLightMode:i,fetchMessages:o,bottomRef:s}){const{logout:a}=na(),[l,u]=E.useState(!1),[c,d]=E.useState(!1),[f,p]=E.useState([{id:0,img:"bi-list",menu:!0,pressed:!1},{id:1,img:"bi-circle-fill",pressed:!1},{id:2,add:!0,img:`
+              `,children:j.jsx("i",{className:"bi-send-fill",style:{fontSize:"1.5rem"}})})]})})}function GT({isNav:e,setIsNav:t,user:n,lightMode:r,setLightMode:i,fetchMessages:o,bottomRef:s}){const{logout:a}=na(),[l,u]=E.useState(!1),[c,d]=E.useState(!1),[f,p]=E.useState([{id:0,img:"bi-list",menu:!0,pressed:!1},{id:2,add:!0,img:`
         bi-plus-lg
       `,pressed:!1},{id:3,img:null,pic:n==null?void 0:n.picture,pressed:!1},{id:4,img:"bi-door-closed-fill",logout:!0,pressed:!1}]),m=g=>{const h=[...f];h[g.id].pressed=!0,p(h);const v=[...f];setTimeout(()=>{v.forEach(y=>{v[y.id].pressed=!1}),p(v)},200)},w=()=>j.jsxs(j.Fragment,{children:[j.jsx("img",{alt:"user pic",src:n==null?void 0:n.picture,className:"rounded-circle position-absolute",width:"30rem"}),j.jsx("div",{className:"p-2 pt-2 pb-2"})]}),P=g=>j.jsx("i",{className:g.img,style:{fontSize:"1.5rem"}});return j.jsxs("div",{className:`
         w-100 d-flex fixed-bottom
