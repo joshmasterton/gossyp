@@ -1,49 +1,45 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { motion } from 'framer-motion';
-import Menu from './Menu';
-import WriteMessage from '../routes/WriteMessage';
+import { getLightMode, switchLightMode } from './LightMode';
 
-function Nav({
+export default function Menu({
   user,
-  isNav,
-  setIsNav,
-  fetchMessages,
+  isMenu,
+  setIsMenu,
   lightMode,
   setLightMode,
-  bottomRef,
 }) {
   const { logout } = useAuth0();
-  const [isMenu, setIsMenu] = useState(false);
-  const [isWriteMessage, setIsWriteMessage] = useState(false);
   const [nav, setNav] = useState([
     {
       id: 0,
-      img: 'bi-list',
-      menu: true,
-      pressed: false,
-    },
-    {
-      id: 1,
-      add: true,
-      img: `
-        bi-plus-lg
-      `,
-      pressed: false,
-    },
-    {
-      id: 2,
       img: null,
       pic: user?.picture,
       pressed: false,
     },
     {
-      id: 3,
+      id: 1,
       img: 'bi-door-closed-fill',
       logout: true,
       pressed: false,
+      name: 'Logout',
+    },
+    {
+      id: 2,
+      img: 'bi-moon-fill',
+      light: true,
+      pressed: false,
+      name: 'Light Mode',
+    },
+    {
+      id: 3,
+      img: 'bi-x-lg',
+      exit: true,
+      pressed: false,
+      name: 'Close',
     },
   ]);
 
@@ -61,15 +57,14 @@ function Nav({
   };
 
   const userPicture = () => (
-    <>
-      <img
-        alt="user pic"
-        src={user?.picture}
-        className="rounded-circle position-absolute"
-        width="30rem"
-      />
-      <div className="p-2 pt-2 pb-2" />
-    </>
+    <img
+      alt="user pic"
+      src={user?.picture}
+      style={{ width: '2.5rem' }}
+      className={`
+        d-flex rounded-circle
+      `}
+    />
   );
 
   const navLogo = (obj) => (
@@ -81,30 +76,51 @@ function Nav({
 
   return (
     <>
+      <motion.button
+        type="button"
+        animate={isMenu ? 'open' : 'closed'}
+        transition={{ duration: 0 }}
+        initial={{ scale: 0 }}
+        variants={{
+          open: { scale: 1 },
+          closed: { scale: 0 },
+        }}
+        onClick={() => setIsMenu(false)}
+        className={`
+          w-100 h-100 btn position-absolute
+          border-0 z-2 rounded
+        `}
+        style={{
+          transition: 'all 0s',
+          backdropFilter: 'blur(0.5rem)',
+          WebkitBackdropFilter: 'blur(0.5rem)',
+        }}
+      />
       <motion.nav
         initial={{ x: '-150%' }}
-        animate={isNav ? 'open' : 'closed'}
+        animate={isMenu ? 'open' : 'closed'}
         transition={{ duration: 0 }}
         variants={{
           open: { x: 0 },
           closed: { x: '-150%' },
         }}
         className={`
-          d-flex flex-grow-1 bottom-0 w-100 rounded
-          justify-content-center flex-wrap z-1
-          overflow-hidden position-absolute
+          d-flex flex-column pe-auto z-3
+          rounded h-100 flex-wrap w-75
+          position-absolute overflow-hidden
+
         `}
         style={{
-          maxHeight: '4.25rem',
-          transition: 'all 0.6s',
+          transition: 'all 0.4s',
+          maxWidth: '5rem',
           backdropFilter: 'blur(0.5rem)',
           WebkitBackdropFilter: 'blur(0.5rem)',
         }}
       >
         <div
           className={`
-            w-100 h-100 opacity-75
-            bg-${lightMode} position-absolute
+            w-100 h-100 rounded opacity-75
+            position-absolute bg-${lightMode}
           `}
         />
         {nav.map((obj) => (
@@ -128,46 +144,29 @@ function Nav({
                   },
                 });
               }
-              if (obj.menu) setIsMenu(true);
-              if (obj.add) {
-                setIsWriteMessage(true);
-                setIsNav(false);
+              if (obj.light) {
+                switchLightMode();
+                setLightMode(getLightMode());
+              }
+              if (obj.exit) {
+                setIsMenu(false);
               }
             }}
             style={{
               transition: 'all 0s',
-              maxWidth: '5rem',
             }}
             className={`
-              flex-grow-1 d-flex
-              border-0 p-4 pt-3 pb-3
-              position-relative z-2
-              align-items-center btn
+              d-flex border-0 w-100
+              position-relative p-3 pt-3 pb-3
+              align-items-center btn gap-2
               justify-content-center
+              overflow-hidden flex-wrap
             `}
           >
             {obj.pic ? userPicture() : navLogo(obj)}
           </motion.button>
         ))}
       </motion.nav>
-      <Menu
-        user={user}
-        isMenu={isMenu}
-        setIsMenu={setIsMenu}
-        lightMode={lightMode}
-        setLightMode={setLightMode}
-      />
-      <WriteMessage
-        user={user}
-        setIsNav={setIsNav}
-        isWriteMessage={isWriteMessage}
-        setIsWriteMessage={setIsWriteMessage}
-        lightMode={lightMode}
-        fetchMessages={fetchMessages}
-        bottomRef={bottomRef}
-      />
     </>
   );
 }
-
-export default Nav;
