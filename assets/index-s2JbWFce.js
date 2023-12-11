@@ -82,26 +82,24 @@ Error generating stack: `+o.message+`
             w-100 h-100 rounded opacity-75
             bg-${e} position-absolute
           `})]})})}function HT({user:e,isMenu:t,setIsMenu:n,lightMode:r,setLightMode:i}){const{logout:o}=na(),[s,a]=E.useState([{id:0,img:null,pic:e==null?void 0:e.picture,pressed:!1},{id:1,img:"bi-door-closed-fill",logout:!0,pressed:!1,name:"Logout"},{id:2,img:"bi-moon-fill",light:!0,pressed:!1,name:"Logout"},{id:3,img:"bi-x-lg",exit:!0,pressed:!1,name:"Logout"}]),l=d=>{const f=[...s];f[d.id].pressed=!0,a(f);const p=[...s];setTimeout(()=>{p.forEach(m=>{p[m.id].pressed=!1}),a(p)},200)},u=()=>j.jsx("img",{alt:"user pic",src:e==null?void 0:e.picture,style:{width:"3rem"},className:`
-        d-flex rounded-circle
+        d-flex rounded-circle position-absolute
       `}),c=d=>j.jsx("i",{className:d.img,style:{fontSize:"1.5rem"}});return j.jsxs(j.Fragment,{children:[j.jsx(yt.button,{type:"button",animate:t?"open":"closed",transition:{duration:0},initial:{scale:0},variants:{open:{scale:1},closed:{scale:0}},onClick:()=>n(!1),className:`
-          w-100 h-100 btn fixed-top
-          z-3 pe-auto border-0
-        `,style:{transition:"all 0.1s",backdropFilter:"blur(0.5rem)",WebkitBackdropFilter:"blur(0.5rem)"}}),j.jsx(yt.div,{className:`
-          d-flex flex-column pe-none z-3 fixed-top
-          rounded h-100 flex-wrap
-          p-3 w-100
-        `,initial:{x:"-150%"},animate:t?"open":"closed",transition:{duration:0},variants:{open:{x:0},closed:{x:"-150%"}},style:{transition:"all .4s"},children:j.jsxs("nav",{className:`
-            d-flex flex-column pe-auto z-2
-            rounded h-100 flex-wrap
-          `,style:{transition:"all 0s",maxWidth:"5rem",backdropFilter:"blur(0.5rem)",WebkitBackdropFilter:"blur(0.5rem)"},children:[j.jsx("div",{style:{maxWidth:"5rem"},className:`
-              w-100 h-100 rounded opacity-75
-              position-absolute bg-${r}
-            `}),s.map(d=>j.jsx(yt.button,{id:d.id,type:"button",whileHover:{opacity:.5},animate:d.pressed?"open":"closed",transition:{duration:.4},variants:{open:{scale:.5},closed:{scale:1}},onClick:()=>{l(d),d.logout&&o({logoutParams:{returnTo:`${window.location.origin}/gossyp/`}}),d.light&&(p1(),i(Cc())),d.exit&&n(!1)},style:{transition:"all 0s",maxHeight:"5rem"},className:`
-                d-flex border-0 flex-grow-1
-                position-relative z-2 p-3 pt-2 pb-2
-                align-items-center btn
-                justify-content-center
-              `,children:d.pic?u():c(d)},d.id))]})})]})}function Zc({lightMode:e}){return j.jsxs("div",{style:{maxWidth:"4.5rem"},className:`
+          w-100 h-100 btn position-absolute
+          border-0 z-2 rounded
+        `,style:{transition:"all 0s",backdropFilter:"blur(0.5rem)",WebkitBackdropFilter:"blur(0.5rem)"}}),j.jsxs(yt.nav,{initial:{x:"-150%"},animate:t?"open":"closed",transition:{duration:0},variants:{open:{x:0},closed:{x:"-150%"}},className:`
+          d-flex flex-column pe-auto z-3
+          rounded h-100 flex-wrap w-100 bg-danger
+          position-absolute overflow-hidden
+        `,style:{transition:"all 0.4s",maxWidth:"15rem",backdropFilter:"blur(0.5rem)",WebkitBackdropFilter:"blur(0.5rem)"},children:[j.jsx("div",{style:{maxWidth:"15rem"},className:`
+            w-100 h-100 rounded opacity-75
+            position-absolute bg-${r}
+          `}),s.map(d=>j.jsxs(yt.button,{id:d.id,type:"button",whileHover:{opacity:.5},animate:d.pressed?"open":"closed",transition:{duration:.4},variants:{open:{scale:.5},closed:{scale:1}},onClick:()=>{l(d),d.logout&&o({logoutParams:{returnTo:`${window.location.origin}/gossyp/`}}),d.light&&(p1(),i(Cc())),d.exit&&n(!1)},style:{transition:"all 0s",maxHeight:"5rem"},className:`
+              d-flex border-0 flex-grow-1
+              position-relative p-3 pt-3 pb-3
+              align-items-center btn gap-3
+              justify-content-center bg-warning
+              overflow-hidden flex-wrap
+            `,children:[d.pic?u():c(d),j.jsx("div",{children:d.name})]},d.id))]})]})}function Zc({lightMode:e}){return j.jsxs("div",{style:{maxWidth:"4.5rem"},className:`
         d-flex align-items-center
         align-self-center p-4 pt-3 pb-3
         justify-content-center h-100
@@ -115,16 +113,13 @@ Error generating stack: `+o.message+`
             ${e==="dark"?"#f4f4f7":"#27292f"}
           `,borderLeft:"8px solid transparent",borderRight:"8px solid transparent",borderBottom:"8px solid transparent"},className:`
           p-2 rounded-circle
-        `})]})}function KT({user:e,setIsNav:t,lightMode:n,isWriteMessage:r,setIsWriteMessage:i,fetchMessages:o,bottomRef:s}){const[a,l]=E.useState(!1),[u,c]=E.useState(!1),[d,f]=E.useState(""),p=w=>f(w.target.value),m=async w=>(c(!0),l(!0),setTimeout(()=>c(!1),200),w.preventDefault(),await(await fetch("https://gossyp-api.fly.dev/sendMessage",{headers:{"Content-Type":"application/json"},method:"POST",credentials:"include",body:JSON.stringify({message:d,user:e.name,userImg:e.picture})})).json(),await o(),f(""),l(!1));return j.jsx(yt.div,{initial:{x:"150%"},animate:r?"open":"closed",transition:{duration:0},style:{transition:"all 0.4s"},variants:{open:{x:0},closed:{x:"150%"}},className:`
-        d-flex fixed-top w-100 h-100 align-items-end
-        justify-content-center overflow-hidden
-        pe-none
-      `,children:j.jsxs("form",{method:"POST",className:`
-          d-flex flex-grow-1 pe-auto
-          z-2 rounded m-3 position-relative
-        `,style:{backdropFilter:"blur(0.5rem)",WebkitBackdropFilter:"blur(0.5rem)"},children:[j.jsx("div",{className:`
-            w-100 h-100 rounded opacity-75
-            bg-${n} position-absolute z-1
+        `})]})}function KT({user:e,setIsNav:t,lightMode:n,isWriteMessage:r,setIsWriteMessage:i,fetchMessages:o,bottomRef:s}){const[a,l]=E.useState(!1),[u,c]=E.useState(!1),[d,f]=E.useState(""),p=w=>f(w.target.value),m=async w=>(w.preventDefault(),c(!0),l(!0),setTimeout(()=>c(!1),200),await(await fetch("http://localhost:8081/sendMessage",{headers:{"Content-Type":"application/json"},method:"POST",credentials:"include",body:JSON.stringify({message:d,user:e.name,userImg:e.picture})})).json(),await o(),f(""),l(!1));return j.jsxs(yt.form,{initial:{x:"150%"},animate:r?"open":"closed",transition:{duration:0},variants:{open:{x:0},closed:{x:"150%"}},method:"POST",className:`
+          d-flex flex-grow-1 rounded
+          overflow-hidden position-absolute
+          bottom-0 w-100 z-1
+        `,style:{transition:"all 0.4s",backdropFilter:"blur(0.5rem)",WebkitBackdropFilter:"blur(0.5rem)"},children:[j.jsx("div",{className:`
+            bg-${n} position-absolute
+            h-100 w-100 opacity-75
           `}),j.jsx(yt.button,{type:"button",whileHover:{opacity:.5},transition:{duration:.4},onClick:()=>{i(!1),t(!0)},className:`
             align-self-end btn
             p-4 pt-3 pb-3 border-0 z-2
@@ -136,29 +131,26 @@ Error generating stack: `+o.message+`
               `,children:j.jsx(Zc,{lightMode:n})}):j.jsx(yt.button,{type:"submit",whileHover:{opacity:.5},animate:u?"open":"closed",transition:{duration:.4},variants:{open:{scale:.5},closed:{scale:1}},onClick:w=>m(w),className:`
                 align-self-end btn
                 p-4 pt-3 pb-3 border-0 z-2
-              `,children:j.jsx("i",{className:"bi-send-fill",style:{fontSize:"1.5rem"}})})]})})}function GT({isNav:e,setIsNav:t,user:n,lightMode:r,setLightMode:i,fetchMessages:o,bottomRef:s}){const{logout:a}=na(),[l,u]=E.useState(!1),[c,d]=E.useState(!1),[f,p]=E.useState([{id:0,img:"bi-list",menu:!0,pressed:!1},{id:2,add:!0,img:`
+              `,children:j.jsx("i",{className:"bi-send-fill",style:{fontSize:"1.5rem"}})})]})}function GT({user:e,isNav:t,setIsNav:n,fetchMessages:r,lightMode:i,setLightMode:o,bottomRef:s}){const{logout:a}=na(),[l,u]=E.useState(!1),[c,d]=E.useState(!1),[f,p]=E.useState([{id:0,img:"bi-list",menu:!0,pressed:!1},{id:1,add:!0,img:`
         bi-plus-lg
-      `,pressed:!1},{id:3,img:null,pic:n==null?void 0:n.picture,pressed:!1},{id:4,img:"bi-door-closed-fill",logout:!0,pressed:!1}]),m=g=>{const h=[...f];h[g.id].pressed=!0,p(h);const v=[...f];setTimeout(()=>{v.forEach(y=>{v[y.id].pressed=!1}),p(v)},200)},w=()=>j.jsxs(j.Fragment,{children:[j.jsx("img",{alt:"user pic",src:n==null?void 0:n.picture,className:"rounded-circle position-absolute",width:"30rem"}),j.jsx("div",{className:"p-2 pt-2 pb-2"})]}),P=g=>j.jsx("i",{className:g.img,style:{fontSize:"1.5rem"}});return j.jsxs("div",{className:`
-        w-100 d-flex fixed-bottom
-        justify-content-center p-3
-      `,children:[j.jsxs(yt.nav,{initial:{x:"-150%"},animate:e?"open":"closed",transition:{duration:0},variants:{open:{x:0},closed:{x:"-150%"}},className:`
-          d-flex flex-grow-1 position-relative
-          rounded justify-content-center flex-wrap
-          overflow-hidden
+      `,pressed:!1},{id:2,img:null,pic:e==null?void 0:e.picture,pressed:!1},{id:3,img:"bi-door-closed-fill",logout:!0,pressed:!1}]),m=g=>{const h=[...f];h[g.id].pressed=!0,p(h);const v=[...f];setTimeout(()=>{v.forEach(y=>{v[y.id].pressed=!1}),p(v)},200)},w=()=>j.jsxs(j.Fragment,{children:[j.jsx("img",{alt:"user pic",src:e==null?void 0:e.picture,className:"rounded-circle position-absolute",width:"30rem"}),j.jsx("div",{className:"p-2 pt-2 pb-2"})]}),P=g=>j.jsx("i",{className:g.img,style:{fontSize:"1.5rem"}});return j.jsxs(j.Fragment,{children:[j.jsxs(yt.nav,{initial:{x:"-150%"},animate:t?"open":"closed",transition:{duration:0},variants:{open:{x:0},closed:{x:"-150%"}},className:`
+          d-flex flex-grow-1 bottom-0 w-100 rounded
+          justify-content-center flex-wrap z-1
+          overflow-hidden position-absolute
         `,style:{maxHeight:"4.25rem",transition:"all 0.6s",backdropFilter:"blur(0.5rem)",WebkitBackdropFilter:"blur(0.5rem)"},children:[j.jsx("div",{className:`
-            w-100 h-100 rounded opacity-75
-            bg-${r} position-absolute
-          `}),f.map(g=>j.jsx(yt.button,{id:g.id,type:"button",whileHover:{opacity:.5},animate:g.pressed?"open":"closed",transition:{duration:.4},variants:{open:{scale:.5},closed:{scale:1}},onClick:()=>{m(g),g.logout&&a({logoutParams:{returnTo:`${window.location.origin}/gossyp/`}}),g.menu&&u(!0),g.add&&(d(!0),t(!1))},style:{transition:"all 0s",maxWidth:"4.5rem"},className:`
+            w-100 h-100 opacity-75
+            bg-${i} position-absolute
+          `}),f.map(g=>j.jsx(yt.button,{id:g.id,type:"button",whileHover:{opacity:.5},animate:g.pressed?"open":"closed",transition:{duration:.4},variants:{open:{scale:.5},closed:{scale:1}},onClick:()=>{m(g),g.logout&&a({logoutParams:{returnTo:`${window.location.origin}/gossyp/`}}),g.menu&&u(!0),g.add&&(d(!0),n(!1))},style:{transition:"all 0s",maxWidth:"5rem"},className:`
               flex-grow-1 d-flex
-              border-0 pt-3 pb-3
+              border-0 p-4 pt-3 pb-3
               position-relative z-2
               align-items-center btn
               justify-content-center
-            `,children:g.pic?w():P(g)},g.id))]}),j.jsx(HT,{user:n,isMenu:l,setIsMenu:u,lightMode:r,setLightMode:i}),j.jsx(KT,{user:n,setIsNav:t,isWriteMessage:c,setIsWriteMessage:d,lightMode:r,fetchMessages:o,bottomRef:s})]})}function XT({messages:e,bottomRef:t,lightMode:n,loadingMessages:r,user:i}){return r?j.jsx("div",{className:`
+            `,children:g.pic?w():P(g)},g.id))]}),j.jsx(HT,{user:e,isMenu:l,setIsMenu:u,lightMode:i,setLightMode:o}),j.jsx(KT,{user:e,setIsNav:n,isWriteMessage:c,setIsWriteMessage:d,lightMode:i,fetchMessages:r,bottomRef:s})]})}function XT({messages:e,bottomRef:t,lightMode:n,loadingMessages:r,user:i}){return r?j.jsx("div",{className:`
           d-flex justify-content-center
           w-100 h-100 pb-5
         `,children:j.jsx(Zc,{lightMode:n})}):j.jsxs("div",{className:`
-        d-flex flex-column w-100 h-100 p-3 gap-3
+        d-flex flex-column w-100 h-0 p-3 gap-3
       `,children:[e==null?void 0:e.map(o=>j.jsxs("div",{className:"d-flex flex-column gap-1",children:[j.jsxs("div",{className:`
               d-flex w-75 gap-3
               align-items-center
@@ -172,7 +164,7 @@ Error generating stack: `+o.message+`
               `,children:o.message})]}),j.jsxs("div",{className:`
               ${i.name===o.username?"align-self-end":""}  
               small opacity-50 d-flex gap-1
-            `,children:[j.jsx("div",{children:`${o.username} -`}),new Date(o.created_on).toLocaleTimeString()]})]},o.id)),j.jsx("div",{className:"p-0 pb-5"}),j.jsx("div",{ref:t,className:"p-1 pb-3"})]})}function ZT({isNav:e,setIsNav:t,user:n,lightMode:r,setLightMode:i,fetchMessages:o,bottomRef:s}){return j.jsxs(j.Fragment,{children:[j.jsx(GT,{isNav:e,setIsNav:t,user:n,lightMode:r,setLightMode:i,fetchMessages:o,bottomRef:s}),j.jsx(xS,{})]})}function YT(){const e=E.useRef(),[t,n]=E.useState(!0),[r,i]=E.useState(null),[o,s]=E.useState(!0),[a,l]=E.useState(Cc()),{user:u,isLoading:c,isAuthenticated:d}=na(),f=async()=>{const w=await(await fetch("https://gossyp-api.fly.dev/getMessages",{headers:{"Content-Type":"application/json"},method:"GET",credentials:"include"})).json();return i(w),n(!1)};E.useEffect(()=>async()=>{await f()},[o,u,c,d]),E.useEffect(()=>{var m;(m=e.current)==null||m.scrollIntoView({behavior:"smooth",block:"end",inline:"nearest"})});const p=TS([{path:"/",element:j.jsx(ZT,{isNav:o,setIsNav:s,user:u,lightMode:a,setLightMode:l,fetchMessages:f,bottomRef:e}),children:[{path:"/",element:j.jsx(XT,{user:u,lightMode:a,messages:r,bottomRef:e,loadingMessages:t})}]}],{basename:"/"});return c?j.jsx("div",{className:`
+            `,children:[j.jsx("div",{children:`${o.username} -`}),new Date(o.created_on).toLocaleTimeString()]})]},o.id)),j.jsx("div",{className:"p-0 pb-5"}),j.jsx("div",{ref:t,className:"p-1 pb-3"})]})}function ZT({isNav:e,setIsNav:t,user:n,lightMode:r,setLightMode:i,fetchMessages:o,bottomRef:s}){return j.jsxs(j.Fragment,{children:[j.jsx(GT,{isNav:e,setIsNav:t,user:n,lightMode:r,setLightMode:i,fetchMessages:o,bottomRef:s}),j.jsx(xS,{})]})}function YT(){const e=E.useRef(),[t,n]=E.useState(!0),[r,i]=E.useState(null),{user:o,isLoading:s,isAuthenticated:a}=na(),[l,u]=E.useState(!0),[c,d]=E.useState(Cc()),f=async()=>{const w=await(await fetch("http://localhost:8081/getMessages",{headers:{"Content-Type":"application/json"},method:"GET",credentials:"include"})).json();return i(w),n(!1)};E.useEffect(()=>async()=>{await f()},[l,o,s,a]),E.useEffect(()=>{var m;(m=e.current)==null||m.scrollIntoView({behavior:"smooth",block:"end",inline:"nearest"})});const p=TS([{path:"/",element:j.jsx(ZT,{isNav:l,setIsNav:u,user:o,lightMode:c,setLightMode:d,fetchMessages:f,bottomRef:e}),children:[{path:"/",element:j.jsx(XT,{user:o,lightMode:c,messages:r,bottomRef:e,loadingMessages:t})}]}],{basename:"/"});return s?j.jsx("div",{className:`
           d-flex justify-content-center
           w-100 h-100 pb-5
-        `,children:j.jsx(Zc,{lightMode:a})}):d?j.jsx(IS,{router:p}):j.jsx(WT,{lightMode:a,setLightMode:l})}const Yc=document.documentElement;Yc.setAttribute("data-bs-theme",Cc());Yc.style.height="100%";Yc.style.overflow="hidden";document.getElementById("root").style.height="100%";document.body.style.height="100%";document.body.style.overflow="auto";cl.createRoot(document.getElementById("root")).render(j.jsx(so.StrictMode,{children:j.jsx(h1,{domain:"dev-8gi2e0mopqxr5qyy.us.auth0.com",clientId:"yMsuL7pj9VNR4Asj4X9tn5upb1WZjZVm",authorizationParams:{redirect_uri:`${window.location.origin}/gossyp/`},children:j.jsx(YT,{})})}));
+        `,children:j.jsx(Zc,{lightMode:c})}):a?j.jsx(IS,{router:p}):j.jsx(WT,{lightMode:c,setLightMode:d})}const Yc=document.documentElement;Yc.setAttribute("data-bs-theme",Cc());Yc.style.height="100%";Yc.style.overflow="hidden";document.getElementById("root").style.height="100%";document.body.style.height="100%";document.body.style.overflow="auto";cl.createRoot(document.getElementById("root")).render(j.jsx(so.StrictMode,{children:j.jsx(h1,{domain:"dev-8gi2e0mopqxr5qyy.us.auth0.com",clientId:"yMsuL7pj9VNR4Asj4X9tn5upb1WZjZVm",authorizationParams:{redirect_uri:`${window.location.origin}/gossyp/`},children:j.jsx(YT,{})})}));
